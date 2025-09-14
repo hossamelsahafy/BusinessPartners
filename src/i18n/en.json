@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "contact": "Contact",
+    "whyus": "Why Us",
+    "sectors": "Sectors",
+    "services": "Services",
+    "about": "About"
+  },
+
+  "BannerOne": {
+    "TitleOne": "Integrated solutions combining financial management and business consulting",
+    "SpanOne": " for your company’s success",
+    "TitleTwo": "We provide your company with robust financial systems and strategic business consulting to help improve performance and make data-driven decisions.",
+    "Button": "Request a free consultation now",
+    "Search": "What are you looking for ....?"
+  }
+}
