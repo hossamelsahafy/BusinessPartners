@@ -13,5 +13,124 @@
     "TitleTwo": "We provide your company with robust financial systems and strategic business consulting to help improve performance and make data-driven decisions.",
     "Button": "Request a free consultation now",
     "Search": "What are you looking for ....?"
+  },
+  "FastAbout": {
+    "title": "A Quick Overview of",
+    "Span": "Business Partners",
+    "para": "We are a company specialized in financial management, business, and tax consulting. We help organizations and startups in Egypt and the Gulf build strong financial and operational systems and achieve sustainable growth through integrated solutions that include accounting, taxation, consulting, and digital transformation.",
+    "Services": [
+      "Sustainable Growth",
+      "Positive Results",
+      "Strategic Partnerships",
+      "Integrated Services",
+      "Regional Expertise"
+    ]
+  },
+  "MainServices": {
+    "title": "Main Services",
+    "Button": "Learn More",
+    "Services": [
+      {
+        "Name": "Service One",
+        "des": "Financial Management and Accounting",
+        "Image": "/ImageThree.png"
+      },
+      { "Name": "Service Two", "des": "Tax and Audit Services", "Image": "/ImageTwo.png" },
+      {
+        "Name": "Service Three",
+        "des": "Digital Transformation and Consulting",
+        "Image": "/ImageOne.png"
+      }
+    ]
+  },
+  "ServedSectors": {
+    "title": "Sectors We Serve",
+    "des": "With our diverse expertise, we support companies across various sectors in Egypt and the Gulf. We provide specialized financial and operational solutions tailored to each industry, helping them grow with confidence.",
+    "Sectors": [
+      {
+        "Name": "Healthcare Sector",
+        "des": "Customized financial and operational solutions for medical centers and clinics to support efficiency and sustainability.",
+        "Image": "/SectorOne.png"
+      },
+      {
+        "Name": "E-commerce",
+        "des": "Financial and digital services that help your online store manage operations and increase sales with confidence.",
+        "Image": "/SectorTwo.png"
+      },
+      {
+        "Name": "Service Businesses",
+        "des": "Financial management and operational consulting that enable service companies to improve performance and achieve customer satisfaction.",
+        "Image": "/SectorThree.png"
+      },
+      {
+        "Name": "Contracting and Construction",
+        "des": "Financial and administrative support for construction projects to ensure cost control and higher profitability.",
+        "Image": "/SectorFour.png"
+      },
+      {
+        "Name": "Real Estate",
+        "des": "Accounting and consulting services that help real estate developers plan and manage projects efficiently.",
+        "Image": "/SectorFive.png"
+      },
+      {
+        "Name": "Startups",
+        "des": "We provide startups with the financial and administrative tools they need to launch and expand into markets with confidence.",
+        "Image": "/SectorSix.png"
+      }
+    ],
+    "Button": "Learn More..."
+  },
+  "SuccessStories": {
+    "title": "Real Success Stories",
+    "des": "We share our clients' success stories and how our financial and administrative solutions helped them achieve tangible results, from improving performance to expanding into new markets."
+  },
+  "Footer": {
+    "support": {
+      "title": "Support & Contact",
+      "contactUs": "Contact Us",
+      "offices": "Office Locations",
+      "socialMedia": "Social Media",
+      "joinTeam": "Join Our Team"
+    },
+    "sectors": {
+      "title": "Sectors",
+      "healthcare": "Healthcare",
+      "ecommerce": "E-Commerce",
+      "contracting": "Contracting",
+      "realEstate": "Real Estate",
+      "startups": "Startups"
+    },
+    "services": {
+      "title": "Services",
+      "financialManagement": "Financial Management",
+      "taxesAudit": "Taxes & Audit",
+      "managementConsulting": "Management Consulting",
+      "digitalTransformation": "Digital Transformation",
+      "riskManagement": "Risk Management"
+    },
+    "about": {
+      "title": "About Company",
+      "whoWeAre": "Who We Are",
+      "ourStory": "Our Story",
+      "visionMission": "Vision & Mission",
+      "whyChooseUs": "Why Choose Us"
+    },
+    "copyright": {
+      "businessPartners": "Business Partners",
+      "allRightsReserved": "All Rights Reserved"
+    },
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
+    "followUs": "Follow Us on Social Media"
+  },
+  "BannerTwo": {
+    "title": "Let's grow your business together.",
+    "des": "Join us in financial management, consulting, and digital solutions that deliver real results.",
+    "ButtonOne": "Explore Services",
+    "ButtonTwo": "Book a Consultation"
+  },
+  "SayAboutUs": {
+  "Title": "What Our Clients Say",
+  "Des": "Our clients' trust is the greatest proof of the quality of our services. Here, we showcase some of their experiences and impressions after working with us."
   }
 }

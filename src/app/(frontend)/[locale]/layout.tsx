@@ -3,6 +3,7 @@ import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { Cairo, Montserrat } from 'next/font/google'
 import NavBar from './_components/Home/NavBar/NavBar'
+import Footer from './_components/Home/Footer/Footer'
 import '../globals.css'
 
 const montserrat = Montserrat({
@@ -33,6 +34,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages} locale={locale}>
           <NavBar />
           {children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

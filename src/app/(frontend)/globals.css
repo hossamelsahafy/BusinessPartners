@@ -1,7 +1,9 @@
 @import "tailwindcss";
 :root {
   --color-secondary: #FFAF00;
+  --color-des: #1c2f8c;
 }
 @theme {
-    --color-secondary: #FFAF00
-}
+    --color-secondary: #FFAF00;
+    --color-des: #1c2f8c;
+  }
