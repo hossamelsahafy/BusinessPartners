@@ -1,0 +1,128 @@
+'use client'
+import React, { useRef, useState, useEffect } from 'react'
+import { useParams } from 'next/navigation'
+import Image from 'next/image'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
+import CountUp from 'react-countup'
+
+const SwiperStories = ({ Why }) => {
+  const { locale } = useParams()
+  const prevRef = useRef(null)
+  const nextRef = useRef(null)
+  const [maxHeight, setMaxHeight] = useState(0)
+  const [isInView, setIsInView] = useState(false)
+  const cardRefs = useRef([])
+  const containerRef = useRef(null)
+
+  const getText = (Why) => (locale === 'ar' ? Why.DesAr : Why.Des)
+  const getName = (Why) => (locale === 'ar' ? Why.Title : Why.TitleEn)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.3 },
+    )
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current)
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    if (cardRefs.current.length > 0) {
+      const heights = cardRefs.current.map((ref) => (ref ? ref.offsetHeight : 0))
+      const max = Math.max(...heights)
+      setMaxHeight(max)
+    }
+  }, [Why, locale])
+
+  return (
+    <div ref={containerRef} className="relative max-w-6xl mx-auto p-6 mt-10">
+      <div
+        ref={locale === 'ar' ? nextRef : prevRef}
+        className="absolute top-1/2 -left-12 -translate-y-1/2 z-10 bg-white p-4 rounded-full shadow-md shadow-[#1c2f8c]/30 cursor-pointer"
+      >
+        <IoIosArrowBack className="text-[#1c2f8c] text-2xl" />
+      </div>
+      <div
+        ref={locale === 'ar' ? prevRef : nextRef}
+        className="absolute top-1/2 -right-12 -translate-y-1/2 z-10 bg-white p-4 rounded-full shadow-md shadow-[#1c2f8c]/30 cursor-pointer"
+      >
+        <IoIosArrowForward className="text-[#1c2f8c] text-2xl" />
+      </div>
+
+      <Swiper
+        spaceBetween={30}
+        slidesPerView={3}
+        slidesOffsetBefore={20}
+        slidesOffsetAfter={20}
+        modules={[Navigation]}
+        onBeforeInit={(swiper) => {
+          swiper.params.navigation.prevEl = prevRef.current
+          swiper.params.navigation.nextEl = nextRef.current
+        }}
+        navigation={{
+          prevEl: prevRef.current,
+          nextEl: nextRef.current,
+        }}
+        className="cursor-grab active:cursor-grabbing !pb-6"
+      >
+        {Why.map((w, index) => {
+          const description = getText(w)
+
+          return (
+            <SwiperSlide key={index} className="px-2">
+              <div
+                ref={(el) => (cardRefs.current[index] = el)}
+                className="bg-white rounded-xl flex flex-col h-full p-6 shadow-[4px_6px_12px_rgba(28,47,140,0.25)]"
+                dir={locale === 'ar' ? 'rtl' : 'ltr'}
+                style={{ minHeight: maxHeight > 0 ? `${maxHeight}px` : 'auto' }}
+              >
+                <div className="flex flex-col h-full">
+                  <div className="text-4xl font-bold text-[#1c2f8c] mb-3 text-center">
+                    {isInView ? (
+                      <>
+                        +<CountUp end={w.Header} duration={2} />%
+                      </>
+                    ) : (
+                      <>+0%</>
+                    )}
+                  </div>
+
+                  <h3 className="text-lg lg:text-xl font-semibold text-[#1c2f8c] mb-4 text-center">
+                    {getName(w)}
+                  </h3>
+
+                  <div className="mt-auto">
+                    <p className="text-gray-700 text-sm lg:text-base text-center leading-relaxed">
+                      <span className="text-secondary">"</span>
+                      {description}
+                      <span className="text-secondary">"</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          )
+        })}
+      </Swiper>
+    </div>
+  )
+}
+
+export default SwiperStories

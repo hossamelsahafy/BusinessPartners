@@ -40,7 +40,7 @@ const SwiperStories = ({ stories }) => {
           return (
             <SwiperSlide key={story.id}>
               <div
-                className={`grid grid-cols-1 md:grid-cols-2 gap-6 p-6 rounded-xl shadow-md shadow-[#1c2f8c]/30`}
+                className={`grid grid-cols-1 md:grid-cols-2 gap-6 mt-8  rounded-xl shadow-md shadow-[#1c2f8c]/30`}
                 dir={locale === 'ar' ? 'rtl' : 'ltr'}
               >
                 <div className="relative w-full h-64 md:h-[350px]">

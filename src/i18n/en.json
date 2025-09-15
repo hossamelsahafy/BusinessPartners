@@ -130,7 +130,44 @@
     "ButtonTwo": "Book a Consultation"
   },
   "SayAboutUs": {
-  "Title": "What Our Clients Say",
-  "Des": "Our clients' trust is the greatest proof of the quality of our services. Here, we showcase some of their experiences and impressions after working with us."
+    "Title": "What Our Clients Say",
+    "Des": "Our clients' trust is the greatest proof of the quality of our services. Here, we showcase some of their experiences and impressions after working with us."
+  },
+  "AboutBanner": {
+    "Title": "About Us",
+    "Des": "Business Partners was founded by Mohamed El-Alfy, with over 10 years of experience supporting companies in the Egyptian and Gulf markets. Our vision is to be the trusted partner in financial management and business consulting for our clients."
+  },
+  "AboutStory": {
+    "Title": "Our Story",
+    "Des": "From the beginning, our vision has been to become the trusted business partner in Egypt and the Gulf. We started with small steps, but with the support of our experience and passion, we now provide comprehensive financial, managerial, and digital solutions that help companies grow with confidence."
+  },
+  "AboutLeaders": {
+    "Title": "Leadership Team",
+    "Des": "Meet our outstanding leadership.",
+    "Name": "Mohamed El-Alfy",
+    "Position": "Chief Executive Officer",
+    "Para": "An experienced leader in business management.",
+    "Icon": "LinkedIn"
+  },
+  "AboutMessage": {
+    "Title": "Vision and Mission",
+    "Des": "At Business Partners, we believe that the success of our clients is a direct reflection of our own success. Through our mission and vision, we lay clear foundations that support businesses in the long term and help them achieve their goals.",
+    "Button": "Learn More"
+  },
+  "AboutXP": {
+    "Title": "Proven Experience",
+    "Des": "Key statistics that highlight our impact in the industry."
+  },
+  "Partnership": {
+    "Title": "Partnerships",
+    "Des": "We are proud of our partnership with ByteForce to foster innovation and sustainable growth.",
+    "SubTitle": "Technology Innovation Partner",
+    "SubDes": "We collaborate with ByteForce to develop advanced solutions and push the boundaries of innovation in the field.",
+    "Btn": "Learn more about our partnership"
+  },
+
+  "Choose": {
+    "Title": "Why Choose Us?",
+    "Des": "At Business Partners, we measure our success through our achievements and the results of our clients. Here are some figures that reflect our expertise and true value."
   }
 }

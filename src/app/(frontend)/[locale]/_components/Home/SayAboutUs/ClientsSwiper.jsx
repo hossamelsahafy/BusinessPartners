@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -13,22 +13,32 @@ const SwiperStories = ({ clients }) => {
   const { locale } = useParams()
   const prevRef = useRef(null)
   const nextRef = useRef(null)
+  const [maxHeight, setMaxHeight] = useState(0)
+  const cardRefs = useRef([])
 
   const getText = (client) => (locale === 'ar' ? client.DesAr : client.DesEn)
   const getName = (client) => (locale === 'ar' ? client.NameAr : client.NameEn)
   const getPosition = (client) => (locale === 'ar' ? client.PositionAr : client.PositionEn)
+
+  useEffect(() => {
+    if (cardRefs.current.length > 0) {
+      const heights = cardRefs.current.map((ref) => (ref ? ref.offsetHeight : 0))
+      const max = Math.max(...heights)
+      setMaxHeight(max)
+    }
+  }, [clients, locale])
+
   return (
     <div className="relative max-w-6xl mx-auto my-10">
-      {/* Custom Arrows */}
       <div
-        ref={prevRef}
-        className="absolute top-1/2 -left-6 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md shadow-[#1c2f8c]/30 cursor-pointer"
+        ref={locale === 'en' ? prevRef : nextRef}
+        className="absolute top-1/2 -left-12 -translate-y-1/2 z-10  cursor-pointer"
       >
         <IoIosArrowBack className="text-[#1c2f8c] text-2xl" />
       </div>
       <div
-        ref={nextRef}
-        className="absolute top-1/2 -right-6 -translate-y-1/2 z-10 bg-white p-4 rounded-full shadow-md shadow-[#1c2f8c]/30 cursor-pointer"
+        ref={locale === 'en' ? nextRef : prevRef}
+        className="absolute top-1/2 -right-12 -translate-y-1/2 z-10  cursor-pointer"
       >
         <IoIosArrowForward className="text-[#1c2f8c] text-2xl" />
       </div>
@@ -36,6 +46,8 @@ const SwiperStories = ({ clients }) => {
       <Swiper
         spaceBetween={30}
         slidesPerView={3}
+        slidesOffsetBefore={15} // 👈 padding before first slide
+        slidesOffsetAfter={15} // 👈 padding after last slide
         modules={[Navigation]}
         navigation={{
           prevEl: prevRef.current,
@@ -50,7 +62,7 @@ const SwiperStories = ({ clients }) => {
             swiper.navigation.update()
           })
         }}
-        className="cursor-grab active:cursor-grabbing"
+        className="cursor-grab active:cursor-grabbing !pb-6"
       >
         {clients.map((client, index) => {
           const description = getText(client)
@@ -59,35 +71,41 @@ const SwiperStories = ({ clients }) => {
           return (
             <SwiperSlide key={index}>
               <div
-                className="bg-white rounded-xl shadow-lg p-4 flex flex-col items-center text-center h-full"
+                ref={(el) => (cardRefs.current[index] = el)}
+                className="bg-white rounded-xl flex flex-col h-full p-6 shadow-[4px_6px_12px_rgba(28,47,140,0.25)] px-4"
                 dir={locale === 'ar' ? 'rtl' : 'ltr'}
+                style={{ minHeight: maxHeight > 0 ? `${maxHeight}px` : 'auto' }}
               >
-                <div className="w-28 h-28 rounded-full overflow-hidden mb-4 shadow-md shadow-[#1c2f8c]/30">
-                  <Image
-                    src={client.Image}
-                    alt={getName(client)}
-                    width={112}
-                    height={112}
-                    className="object-cover w-full h-full"
-                  />
+                <div className="flex flex-col h-full items-center text-center">
+                  <div className="w-28 h-28 rounded-full overflow-hidden mb-4 shadow-md shadow-[#1c2f8c]/30">
+                    <Image
+                      src={client.Image}
+                      alt={getName(client)}
+                      width={112}
+                      height={112}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+
+                  <h3 className="text-lg lg:text-xl font-semibold text-[#1c2f8c] mb-2">
+                    {getName(client)}
+                  </h3>
+                  <p className="text-base mb-3">"{getPosition(client)}"</p>
+
+                  <div className="flex justify-center gap-1 mb-4">
+                    {Array.from({ length: 5 }).map((_, i) =>
+                      i < stars ? (
+                        <FaStar key={i} className="text-secondary" />
+                      ) : (
+                        <FaRegStar key={i} className="text-[#333]" />
+                      ),
+                    )}
+                  </div>
+
+                  <p className="text-gray-700 text-sm lg:text-base leading-relaxed mt-auto">
+                    {description}
+                  </p>
                 </div>
-
-                <h3 className="text-lg lg:text-xl font-semibold text-[#1c2f8c] mb-2">
-                  {getName(client)}
-                </h3>
-                <p className="text-base text-center">"{getPosition(client)}"</p>
-
-                <div className="flex justify-center gap-1 mb-3 mt-2">
-                  {Array.from({ length: 5 }).map((_, i) =>
-                    i < stars ? (
-                      <FaStar key={i} className="text-secondary" />
-                    ) : (
-                      <FaRegStar key={i} className="text-[#333]" />
-                    ),
-                  )}
-                </div>
-
-                <p className="text-gray-700 text-sm lg:text-base leading-relaxed">{description}</p>
               </div>
             </SwiperSlide>
           )
