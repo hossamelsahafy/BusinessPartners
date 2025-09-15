@@ -46,8 +46,8 @@ const SwiperStories = ({ clients }) => {
       <Swiper
         spaceBetween={30}
         slidesPerView={3}
-        slidesOffsetBefore={15} // 👈 padding before first slide
-        slidesOffsetAfter={15} // 👈 padding after last slide
+        slidesOffsetBefore={15}
+        slidesOffsetAfter={15}
         modules={[Navigation]}
         navigation={{
           prevEl: prevRef.current,
