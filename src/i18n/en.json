@@ -169,5 +169,96 @@
   "Choose": {
     "Title": "Why Choose Us?",
     "Des": "At Business Partners, we measure our success through our achievements and the results of our clients. Here are some figures that reflect our expertise and true value."
+  },
+  "ServicesBanner": {
+    "Title": "Our Services",
+    "Des": "At Business Partners, we offer a comprehensive range of financial, administrative, and digital services tailored to meet your business needs. Our goal is to be your trusted partner every step of the way towards success."
+  },
+  "ProvidedServices": {
+    "Title": "Our Services",
+    "Des": "With our diverse expertise, we support companies across various sectors in Egypt and the Gulf. We provide specialized financial and operational solutions tailored to each industry’s nature, helping them grow with confidence.",
+    "Services": [
+      {
+        "Title": "Financial Management & Accounting",
+        "Des": "We provide accurate solutions for managing accounts, budgets, and financial reports to ensure clear visibility and informed decision-making.",
+        "Image": "/ServiceOne.png"
+      },
+      {
+        "Title": "Tax Services",
+        "Des": "We help you achieve full compliance with tax regulations while minimizing risks and protecting your company from penalties.",
+        "Image": "/ServiceTwo.png"
+      },
+      {
+        "Title": "Strategic Consulting",
+        "Des": "We offer tailored consulting to improve your operations and support your strategic plans for sustainable growth.",
+        "Image": "/ServiceThree.png"
+      },
+      {
+        "Title": "Digital Transformation",
+        "Des": "Comprehensive ERP solutions that help you automate workflows and integrate financial and operational processes to increase efficiency.",
+        "Image": "/ServiceFour.png"
+      },
+      {
+        "Title": "Digital Marketing Solutions",
+        "Des": "Through our partnership with ByteForce, we deliver digital marketing strategies that boost your online presence and increase sales.",
+        "Image": "/ServiceFive.png"
+      },
+      {
+        "Title": "Risk Management & Compliance",
+        "Des": "We help you identify financial and operational risks, and implement compliance systems to ensure business sustainability and protection against challenges.",
+        "Image": "/SectorSix.png"
+      }
+    ],
+    "Button": "Learn More ...."
+  },
+  "ServedSectorsBanner": {
+    "Title": "Sectors We Serve",
+    "Des": "With our extensive expertise, we help companies across a wide range of sectors address their unique challenges and adopt financial, operational, and digital solutions that support growth and ensure sustainability."
+  },
+  "Challenges": {
+    "Title": "Challenges & Opportunities",
+    "Des": "We recognize that the business environment is full of challenges, but at the same time, it holds great opportunities for growth. At Business Partners, we help you overcome challenges and capitalize on opportunities to benefit your company.",
+    "Challenges": "Challenges",
+    "Chances": "Chances"
+  },
+  "ContactBanner": {
+    "Title": "Contact Us",
+    "Des": "Do you have a question or need a consultation? Our team is always here to support you and answer all your inquiries. Let us help you take the next step toward your business success."
+  },
+  "ContactUs": {
+    "Title": "Send Us a Message",
+    "Des": "Fill out the form below and our team will get back to you as soon as possible to assist you and answer your inquiry."
+  },
+  "FormItems": {
+    "FullName": "Full Name",
+    "FullNamePlaceHolder": "Enter your full name",
+    "Email": "Email",
+    "EmailPlaceHolder": "Enter your email example@email.com",
+    "PhoneNumber": "Phone Number",
+    "PhoneNumberPlaceHolder": "Enter your phone number +20xxxxxxxxxx",
+    "CompanyName": "Company Name (Optional)",
+    "CompanyPlaceHolder": "Enter your company name",
+    "Message": "Message",
+    "MessagePlaceHolder": "Write your inquiry details here...",
+    "Btn": "Send Your Inquiry",
+    "BtnLoading": "Sending..."
+  },
+  "Map": {
+    "Title": "Our Office Locations",
+    "Des": "You can visit us at one of our offices or contact us directly by phone or email. We are always close to you to support your business.",
+    "Locations": [
+      {
+        "Location": "North Teseen Street, Fifth Settlement, New Cairo, Egypt",
+        "Link": "https://maps.app.goo.gl/JM8m55NEu9P6eVaS9"
+      },
+      {
+        "Location": "Fouad Street, Downtown Area, Alexandria, Egypt",
+        "Link": "https://maps.app.goo.gl/pRi4kJNqysvUBQ4n7"
+      },
+      {
+        "Location": "Kingdom Tower, King Fahd Road, Riyadh, Saudi Arabia",
+        "Link": "https://maps.app.goo.gl/8rz1FTpitBjTpAtv9"
+      }
+    ]
   }
 }

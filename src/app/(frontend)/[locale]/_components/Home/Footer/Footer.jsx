@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl'
 import { FaWhatsapp, FaFacebook, FaInstagram, FaXTwitter } from 'react-icons/fa6'
 import BannerTwo from './BannerTwo'
+
 const Footer = () => {
   const t = useTranslations('Footer')
 
@@ -50,7 +51,7 @@ const Footer = () => {
       <BannerTwo />
       <div className="bg-[#1c2f8c] text-white py-12 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center sm:text-left">
             {footerSections.map((section, index) => (
               <div key={index} className="space-y-4">
                 <h3 className="text-lg font-semibold">{section.title}</h3>
@@ -67,9 +68,10 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <div className="mt-10 text-center text-xs">
-          <p className="mt-4 text-lg font-semibold">{t('followUs')}</p>
-          <div className="flex justify-center space-x-4 my-3 text-lg">
+
+        <div className="mt-10 text-center">
+          <p className="text-lg font-semibold">{t('followUs')}</p>
+          <div className="flex justify-center gap-6 my-4 text-2xl">
             <a href="#" aria-label="WhatsApp">
               <FaWhatsapp className="hover:text-green-400 transition" />
             </a>
@@ -83,24 +85,23 @@ const Footer = () => {
               <FaXTwitter className="hover:text-gray-400 transition" />
             </a>
           </div>
-          {/* Policy links */}
-          <a href="#" className="hover:underline mx-2">
-            {t('privacyPolicy')}
-          </a>
-          |
-          <a href="#" className="hover:underline mx-2">
-            {t('termsConditions')}
-          </a>
+
+          <div className="flex flex-wrap justify-center gap-2 text-sm">
+            <a href="#" className="hover:underline">
+              {t('privacyPolicy')}
+            </a>
+            <span>|</span>
+            <a href="#" className="hover:underline">
+              {t('termsConditions')}
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Bottom copyright section */}
       <div className="bg-black text-white py-4 px-4 md:px-8 text-center">
-        <div className="container mx-auto">
-          <p className="text-sm">
-            © 2025 {t('copyright.businessPartners')} – {t('copyright.allRightsReserved')}
-          </p>
-        </div>
+        <p className="text-sm">
+          © 2025 {t('copyright.businessPartners')} – {t('copyright.allRightsReserved')}
+        </p>
       </div>
     </footer>
   )

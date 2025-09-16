@@ -21,6 +21,7 @@ const SwiperStories = ({ Why }) => {
   const getText = (Why) => (locale === 'ar' ? Why.DesAr : Why.Des)
   const getName = (Why) => (locale === 'ar' ? Why.Title : Why.TitleEn)
 
+  // Trigger CountUp only when section is in view
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -32,45 +33,39 @@ const SwiperStories = ({ Why }) => {
       { threshold: 0.3 },
     )
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current)
-    }
+    if (containerRef.current) observer.observe(containerRef.current)
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current)
-      }
+      if (containerRef.current) observer.unobserve(containerRef.current)
     }
   }, [])
 
+  // Equal height cards
   useEffect(() => {
     if (cardRefs.current.length > 0) {
       const heights = cardRefs.current.map((ref) => (ref ? ref.offsetHeight : 0))
-      const max = Math.max(...heights)
-      setMaxHeight(max)
+      setMaxHeight(Math.max(...heights))
     }
   }, [Why, locale])
 
   return (
-    <div ref={containerRef} className="relative max-w-6xl mx-auto p-6 mt-10">
+    <div ref={containerRef} className="relative max-w-6xl mx-auto p-4 sm:p-6 mt-10">
+      {/* Navigation buttons */}
       <div
         ref={locale === 'ar' ? nextRef : prevRef}
-        className="absolute top-1/2 -left-12 -translate-y-1/2 z-10 bg-white p-4 rounded-full shadow-md shadow-[#1c2f8c]/30 cursor-pointer"
+        className="absolute top-1/2 -left-6 sm:-left-12 -translate-y-1/2 z-10 bg-white p-3 sm:p-4 rounded-full shadow-md shadow-[#1c2f8c]/30 cursor-pointer"
       >
-        <IoIosArrowBack className="text-[#1c2f8c] text-2xl" />
+        <IoIosArrowBack className="text-[#1c2f8c] text-xl sm:text-2xl" />
       </div>
       <div
         ref={locale === 'ar' ? prevRef : nextRef}
-        className="absolute top-1/2 -right-12 -translate-y-1/2 z-10 bg-white p-4 rounded-full shadow-md shadow-[#1c2f8c]/30 cursor-pointer"
+        className="absolute top-1/2 -right-6 sm:-right-12 -translate-y-1/2 z-10 bg-white p-3 sm:p-4 rounded-full shadow-md shadow-[#1c2f8c]/30 cursor-pointer"
       >
-        <IoIosArrowForward className="text-[#1c2f8c] text-2xl" />
+        <IoIosArrowForward className="text-[#1c2f8c] text-xl sm:text-2xl" />
       </div>
 
       <Swiper
-        spaceBetween={30}
-        slidesPerView={3}
-        slidesOffsetBefore={20}
-        slidesOffsetAfter={20}
+        spaceBetween={20}
         modules={[Navigation]}
         onBeforeInit={(swiper) => {
           swiper.params.navigation.prevEl = prevRef.current
@@ -80,21 +75,27 @@ const SwiperStories = ({ Why }) => {
           prevEl: prevRef.current,
           nextEl: nextRef.current,
         }}
-        className="cursor-grab active:cursor-grabbing !pb-6"
+        breakpoints={{
+          0: { slidesPerView: 1 },
+          640: { slidesPerView: 1.2 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+        className="cursor-grab active:cursor-grabbing !pb-8"
       >
         {Why.map((w, index) => {
           const description = getText(w)
 
           return (
-            <SwiperSlide key={index} className="px-2">
+            <SwiperSlide key={index} className="px-1 sm:px-2">
               <div
                 ref={(el) => (cardRefs.current[index] = el)}
-                className="bg-white rounded-xl flex flex-col h-full p-6 shadow-[4px_6px_12px_rgba(28,47,140,0.25)]"
+                className="bg-white rounded-xl flex flex-col h-full p-4 sm:p-6 shadow-[4px_6px_12px_rgba(28,47,140,0.25)]"
                 dir={locale === 'ar' ? 'rtl' : 'ltr'}
                 style={{ minHeight: maxHeight > 0 ? `${maxHeight}px` : 'auto' }}
               >
                 <div className="flex flex-col h-full">
-                  <div className="text-4xl font-bold text-[#1c2f8c] mb-3 text-center">
+                  <div className="text-3xl sm:text-4xl font-bold text-[#1c2f8c] mb-3 text-center">
                     {isInView ? (
                       <>
                         +<CountUp end={w.Header} duration={2} />%
@@ -104,12 +105,12 @@ const SwiperStories = ({ Why }) => {
                     )}
                   </div>
 
-                  <h3 className="text-lg lg:text-xl font-semibold text-[#1c2f8c] mb-4 text-center">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-[#1c2f8c] mb-4 text-center">
                     {getName(w)}
                   </h3>
 
                   <div className="mt-auto">
-                    <p className="text-gray-700 text-sm lg:text-base text-center leading-relaxed">
+                    <p className="text-gray-700 text-sm sm:text-base text-center leading-relaxed">
                       <span className="text-secondary">"</span>
                       {description}
                       <span className="text-secondary">"</span>
