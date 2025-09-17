@@ -179,34 +179,40 @@
     "Des": "With our diverse expertise, we support companies across various sectors in Egypt and the Gulf. We provide specialized financial and operational solutions tailored to each industry’s nature, helping them grow with confidence.",
     "Services": [
       {
-        "Title": "Financial Management & Accounting",
-        "Des": "We provide accurate solutions for managing accounts, budgets, and financial reports to ensure clear visibility and informed decision-making.",
+        "Title": "Accounting and Financial Management",
+        "Des": "We create a comprehensive accounting system for your company covering all financial transactions. We also help you track expenses and sales, and accurately know your profits.",
+        "PopUpDes": "Recording accounting entries\nPreparing monthly reports\nOrganizing revenue and expense sheets\nManaging cash and bank accounts",
         "Image": "/ServiceOne.png"
       },
       {
-        "Title": "Tax Services",
-        "Des": "We help you achieve full compliance with tax regulations while minimizing risks and protecting your company from penalties.",
+        "Title": "Taxes and Tax Audits",
+        "Des": "We give you peace of mind when dealing with taxes, whether income tax, VAT, or withholding taxes. We also prepare your company for tax audits.",
+        "PopUpDes": "Opening tax files and issuing tax cards\nSubmitting all types of tax returns\nRepresenting you before the Tax Authority\nAnalyzing tax costs and reducing the burden",
         "Image": "/ServiceTwo.png"
       },
       {
-        "Title": "Strategic Consulting",
-        "Des": "We offer tailored consulting to improve your operations and support your strategic plans for sustainable growth.",
+        "Title": "Financial Analysis and Performance Measurement",
+        "Des": "We help you see the full picture: Are you making a profit or a loss? If you’re profitable, why? If not, where are the losses coming from?",
+        "PopUpDes": "Profitability and margin analysis\nCost and growth rate analysis\nKey performance indicators (KPIs)",
         "Image": "/ServiceThree.png"
       },
       {
-        "Title": "Digital Transformation",
-        "Des": "Comprehensive ERP solutions that help you automate workflows and integrate financial and operational processes to increase efficiency.",
+        "Title": "Building Administrative and Accounting Systems",
+        "Des": "We help you build an internal system that enables you to manage your company in an organized and efficient way.",
+        "PopUpDes": "Detailed accounting manual\nClear financial policies (payment – collection – treasury)\nOrganizing financial and administrative workflows\nDesigning sheets or software based on your business nature",
         "Image": "/ServiceFour.png"
       },
       {
-        "Title": "Digital Marketing Solutions",
-        "Des": "Through our partnership with ByteForce, we deliver digital marketing strategies that boost your online presence and increase sales.",
+        "Title": "Financial Reporting",
+        "Des": "If you need regular reports to help you make quick, data-driven decisions, we prepare everything you need.",
+        "PopUpDes": "Monthly and annual reports\nInteractive dashboards\nComparative financial analysis\nReports for investors and banks",
         "Image": "/ServiceFive.png"
       },
       {
-        "Title": "Risk Management & Compliance",
-        "Des": "We help you identify financial and operational risks, and implement compliance systems to ensure business sustainability and protection against challenges.",
-        "Image": "/SectorSix.png"
+        "Title": "Company Formation and Registration",
+        "Des": "From the initial idea to having a legal entity, we guide you step by step.",
+        "PopUpDes": "Establishing sole proprietorships and limited liability companies\nOpening tax files and commercial registration\nRegistering for VAT\nCreating social insurance files",
+        "Image": "/ServiceSix.png"
       }
     ],
     "Button": "Learn More ...."

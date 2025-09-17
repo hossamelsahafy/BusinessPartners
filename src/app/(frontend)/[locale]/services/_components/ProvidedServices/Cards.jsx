@@ -1,3 +1,4 @@
+import PopUp from './PopUp'
 import Image from 'next/image'
 import React from 'react'
 
@@ -13,7 +14,8 @@ const Cards = ({ t }) => {
           <Image src={s.Image} width={150} height={150} alt={s.Title} className="object-center" />
           <p className="text-xl font-semibold lg:text-2xl text-des">{s.Title}</p>
           <p className="text-sm mt-auto">{s.Des}</p>
-          <button className="text-sm text-des font-semibold mt-auto">{t('Button')}</button>
+
+          <PopUp sector={s} button={t('Button')} />
         </div>
       ))}
     </div>

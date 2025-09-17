@@ -53,13 +53,13 @@ const SwiperStories = ({ Why }) => {
       {/* Navigation buttons */}
       <div
         ref={locale === 'ar' ? nextRef : prevRef}
-        className="absolute top-1/2 -left-6 sm:-left-12 -translate-y-1/2 z-10 bg-white p-3 sm:p-4 rounded-full shadow-md shadow-[#1c2f8c]/30 cursor-pointer"
+        className="hidden sm:flex absolute top-1/2 -left-6 sm:-left-6 -translate-y-1/2 z-10  p-3 sm:p-4  cursor-pointer"
       >
         <IoIosArrowBack className="text-[#1c2f8c] text-xl sm:text-2xl" />
       </div>
       <div
         ref={locale === 'ar' ? prevRef : nextRef}
-        className="absolute top-1/2 -right-6 sm:-right-12 -translate-y-1/2 z-10 bg-white p-3 sm:p-4 rounded-full shadow-md shadow-[#1c2f8c]/30 cursor-pointer"
+        className="hidden sm:flex absolute top-1/2 -right-6 sm:-right-6 -translate-y-1/2 z-10 p-3 sm:p-4  cursor-pointer"
       >
         <IoIosArrowForward className="text-[#1c2f8c] text-xl sm:text-2xl" />
       </div>

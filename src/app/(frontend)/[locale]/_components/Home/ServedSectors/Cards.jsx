@@ -13,7 +13,7 @@ const Cards = ({ t }) => {
           <Image src={s.Image} width={150} height={150} alt={s.Name} className="object-center" />
           <p className="text-xl font-semibold lg:text-2xl text-des">{s.Name}</p>
           <p className="text-sm mt-auto">{s.des}</p>
-          <button className="text-sm text-des font-semibold mt-auto">{t('Button')}</button>
+          {/* <button className="text-sm text-des font-semibold mt-auto">{t('Button')}</button> */}
         </div>
       ))}
     </div>

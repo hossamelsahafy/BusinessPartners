@@ -47,7 +47,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="w-full">
+    <footer className="w-full overflow-hidden">
       <BannerTwo />
       <div className="bg-[#1c2f8c] text-white py-12 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
@@ -72,13 +72,13 @@ const Footer = () => {
         <div className="mt-10 text-center">
           <p className="text-lg font-semibold">{t('followUs')}</p>
           <div className="flex justify-center gap-6 my-4 text-2xl">
-            <a href="#" aria-label="WhatsApp">
+            <a href="https://wa.me/201557144441" aria-label="WhatsApp">
               <FaWhatsapp className="hover:text-green-400 transition" />
             </a>
-            <a href="#" aria-label="Facebook">
+            <a href="https://www.facebook.com/BusinessPartnersEGY" aria-label="Facebook">
               <FaFacebook className="hover:text-blue-400 transition" />
             </a>
-            <a href="#" aria-label="Instagram">
+            <a href="https://www.instagram.com/businesspartnersegy/" aria-label="Instagram">
               <FaInstagram className="hover:text-pink-400 transition" />
             </a>
             <a href="#" aria-label="X (Twitter)">

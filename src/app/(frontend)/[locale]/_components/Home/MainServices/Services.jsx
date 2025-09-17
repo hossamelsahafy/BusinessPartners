@@ -1,11 +1,13 @@
+'use client'
 import React from 'react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-
+import { useParams, useRouter } from 'next/navigation'
 const Services = () => {
   const t = useTranslations('MainServices')
   const services = t.raw('Services')
-
+  const router = useRouter()
+  const { locale } = useParams()
   return (
     <div className="max-w-6xl mx-auto mt-15 p-4">
       <p className="text-2xl lg:text-4xl text-center font-semibold">{t('title')}</p>
@@ -32,7 +34,10 @@ const Services = () => {
         ))}
       </div>
       <div className="flex justify-center items-center">
-        <button className="bg-secondary text-white rounded-lg px-12 py-2 font-semibold mt-10 transition cursor-pointer duration-300 hover:bg-yellow-600">
+        <button
+          onClick={() => router.push(`${locale}/contact`)}
+          className="bg-secondary  text-white rounded-lg px-12 py-2 font-semibold mt-10 transition cursor-pointer duration-300 hover:bg-yellow-600"
+        >
           {t('Button')}
         </button>
       </div>

@@ -9,9 +9,11 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { Stories } from './collections/Stories'
+import { ClientSaying } from './collections/Client-Saying'
+import { Challenges } from './collections/Challenges'
 import nodemailer from 'nodemailer'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
-
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -35,7 +37,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media],
+  collections: [Users, Media, Stories, ClientSaying, Challenges],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

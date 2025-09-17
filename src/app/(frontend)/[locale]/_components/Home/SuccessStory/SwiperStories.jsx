@@ -12,7 +12,6 @@ import { IoIosArrowForward } from 'react-icons/io'
 const SwiperStories = ({ stories }) => {
   const { locale } = useParams()
   const [expanded, setExpanded] = useState({})
-
   const toggleExpand = (id) => {
     setExpanded((prev) => ({ ...prev, [id]: !prev[id] }))
   }
@@ -45,14 +44,14 @@ const SwiperStories = ({ stories }) => {
               >
                 <div className="relative w-full h-64 md:h-[350px]">
                   <Image
-                    src={story.Image}
+                    src={story.Image.url}
                     alt={getName(story)}
                     fill
                     className="object-cover rounded-lg"
                   />
                 </div>
 
-                <div className="flex flex-col overflow-y-auto max-h-[350px] pr-2">
+                <div className="flex flex-col pr-2 md:max-h-[350px] md:overflow-y-auto">
                   <h3 className="text-xl lg:text-2xl font-semibold text-[#1c2f8c] mb-3">
                     {getName(story)}
                   </h3>
@@ -83,10 +82,10 @@ const SwiperStories = ({ stories }) => {
           )
         })}
       </Swiper>
-      <div className="custom-prev absolute top-1/2 -left-12 -translate-y-1/2 z-10 text-[#1c2f8c] cursor-pointer">
+      <div className="custom-prev hidden sm:flex absolute top-1/2 -left-12 -translate-y-1/2 z-10 text-[#1c2f8c] cursor-pointer">
         <IoIosArrowBack className="text-[#1c2f8c] text-2xl font-semibold" />
       </div>
-      <div className="custom-next absolute top-1/2 -right-12 -translate-y-1/2 z-10 text-[#1c2f8c] cursor-pointer">
+      <div className="custom-next hidden sm:flex  absolute top-1/2 -right-12 -translate-y-1/2 z-10 text-[#1c2f8c] cursor-pointer">
         <IoIosArrowForward className="text-[#1c2f8c] text-2xl font-semibold" />
       </div>
     </div>

@@ -32,85 +32,91 @@ const SwiperStories = ({ clients }) => {
     <div className="relative max-w-6xl mx-auto my-10">
       <div
         ref={locale === 'en' ? prevRef : nextRef}
-        className="absolute top-1/2 -left-12 -translate-y-1/2 z-10  cursor-pointer"
+        className="hidden sm:flex absolute top-1/2 -left-12 -translate-y-1/2 z-10  cursor-pointer"
       >
         <IoIosArrowBack className="text-[#1c2f8c] text-2xl" />
       </div>
       <div
         ref={locale === 'en' ? nextRef : prevRef}
-        className="absolute top-1/2 -right-12 -translate-y-1/2 z-10  cursor-pointer"
+        className="hidden sm:flex  absolute top-1/2 -right-12 -translate-y-1/2 z-10  cursor-pointer"
       >
         <IoIosArrowForward className="text-[#1c2f8c] text-2xl" />
       </div>
-
-      <Swiper
-        spaceBetween={30}
-        slidesPerView={3}
-        slidesOffsetBefore={15}
-        slidesOffsetAfter={15}
-        modules={[Navigation]}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
-        onSwiper={(swiper) => {
-          setTimeout(() => {
+      {
+        <Swiper
+          spaceBetween={30}
+          slidesPerView={1}
+          slidesOffsetBefore={15}
+          slidesOffsetAfter={15}
+          modules={[Navigation]}
+          onBeforeInit={(swiper) => {
             swiper.params.navigation.prevEl = prevRef.current
             swiper.params.navigation.nextEl = nextRef.current
-            swiper.navigation.destroy()
-            swiper.navigation.init()
-            swiper.navigation.update()
-          })
-        }}
-        className="cursor-grab active:cursor-grabbing !pb-6"
-      >
-        {clients.map((client, index) => {
-          const description = getText(client)
-          const stars = client.stars
+          }}
+          navigation={{
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
+          className="cursor-grab active:cursor-grabbing !pb-6"
+        >
+          {clients.map((client, index) => {
+            const description = getText(client)
+            const stars = client.stars
+            return (
+              <SwiperSlide key={index}>
+                <div
+                  ref={(el) => (cardRefs.current[index] = el)}
+                  className="bg-white rounded-xl flex flex-col h-full p-6 shadow-[4px_6px_12px_rgba(28,47,140,0.25)] px-4"
+                  dir={locale === 'ar' ? 'rtl' : 'ltr'}
+                  style={{ minHeight: maxHeight > 0 ? `${maxHeight}px` : 'auto' }}
+                >
+                  <div className="flex flex-col h-full items-center text-center">
+                    <div className="w-28 h-28 rounded-full overflow-hidden mb-4 shadow-md shadow-[#1c2f8c]/30">
+                      <Image
+                        src={client.Image.url}
+                        alt={getName(client)}
+                        width={112}
+                        height={112}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
 
-          return (
-            <SwiperSlide key={index}>
-              <div
-                ref={(el) => (cardRefs.current[index] = el)}
-                className="bg-white rounded-xl flex flex-col h-full p-6 shadow-[4px_6px_12px_rgba(28,47,140,0.25)] px-4"
-                dir={locale === 'ar' ? 'rtl' : 'ltr'}
-                style={{ minHeight: maxHeight > 0 ? `${maxHeight}px` : 'auto' }}
-              >
-                <div className="flex flex-col h-full items-center text-center">
-                  <div className="w-28 h-28 rounded-full overflow-hidden mb-4 shadow-md shadow-[#1c2f8c]/30">
-                    <Image
-                      src={client.Image}
-                      alt={getName(client)}
-                      width={112}
-                      height={112}
-                      className="object-cover w-full h-full"
-                    />
+                    <h3 className="text-lg lg:text-xl font-semibold text-[#1c2f8c] mb-2">
+                      {getName(client)}
+                    </h3>
+                    <p className="text-base mb-3">"{getPosition(client)}"</p>
+
+                    <div className="flex justify-center gap-1 mb-4">
+                      {Array.from({ length: 5 }).map((_, i) =>
+                        i < stars ? (
+                          <FaStar key={i} className="text-secondary" />
+                        ) : (
+                          <FaRegStar key={i} className="text-[#333]" />
+                        ),
+                      )}
+                    </div>
+
+                    <p className="text-gray-700 text-sm lg:text-base leading-relaxed mt-auto">
+                      {description}
+                    </p>
                   </div>
-
-                  <h3 className="text-lg lg:text-xl font-semibold text-[#1c2f8c] mb-2">
-                    {getName(client)}
-                  </h3>
-                  <p className="text-base mb-3">"{getPosition(client)}"</p>
-
-                  <div className="flex justify-center gap-1 mb-4">
-                    {Array.from({ length: 5 }).map((_, i) =>
-                      i < stars ? (
-                        <FaStar key={i} className="text-secondary" />
-                      ) : (
-                        <FaRegStar key={i} className="text-[#333]" />
-                      ),
-                    )}
-                  </div>
-
-                  <p className="text-gray-700 text-sm lg:text-base leading-relaxed mt-auto">
-                    {description}
-                  </p>
                 </div>
-              </div>
-            </SwiperSlide>
-          )
-        })}
-      </Swiper>
+              </SwiperSlide>
+            )
+          })}
+        </Swiper>
+      }
     </div>
   )
 }
