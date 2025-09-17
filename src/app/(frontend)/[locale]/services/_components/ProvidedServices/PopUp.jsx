@@ -8,7 +8,6 @@ const PopUp = ({ sector, button }) => {
 
   return (
     <>
-      {/* 🔘 The button that triggers the popup */}
       <button
         onClick={() => setOpen(true)}
         className="text-base text-des font-semibold cursor-pointer mt-auto"
@@ -16,7 +15,6 @@ const PopUp = ({ sector, button }) => {
         {button}
       </button>
 
-      {/* 🔲 The popup itself */}
       {open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)}></div>
