@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 const Card = ({ t }) => {
   return (
@@ -18,9 +19,12 @@ const Card = ({ t }) => {
           {t('SubTitle')}
         </p>
         <p className="text-sm lg:text-xl text-center text-des">{t('SubDes')}</p>
-        <button className="py-3 px-12 text-white bg-des font-semibold rounded-lg mx-auto mt-10">
+        <Link
+          href="https://byteforceinc.com"
+          className="py-3 px-12 text-white bg-des font-semibold rounded-lg inline-block mx-auto mt-10"
+        >
           {t('Btn')}
-        </button>
+        </Link>
       </div>
     </div>
   )
