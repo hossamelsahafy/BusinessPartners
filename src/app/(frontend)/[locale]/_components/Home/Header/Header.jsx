@@ -13,9 +13,7 @@ const Header = () => {
           <Content t={t} />
         </div>
       </div>
-      <div className="max-w-6xl mx-auto flex justify-center">
-        <SearchBar t={t} />
-      </div>
+      <div className="max-w-6xl mx-auto flex justify-center">{/* <SearchBar t={t} /> */}</div>
     </>
   )
 }

@@ -11,7 +11,7 @@ const Cards = ({ Messages, t }) => {
       {Messages.map((m) => (
         <div
           key={m.title}
-          className="flex flex-col bg-white shadow-[1px_2px_4px_rgba(28,47,140,0.3)] rounded-lg overflow-hidden"
+          className="flex flex-col  bg-white shadow-[1px_2px_4px_rgba(28,47,140,0.3)] rounded-lg overflow-hidden"
         >
           <div className="w-full h-48 relative">
             <Image src={m.Image} alt="Message" fill className="object-cover" />
@@ -21,11 +21,7 @@ const Cards = ({ Messages, t }) => {
             {locale === 'en' ? m.title_en : m.title}
           </p>
 
-          <p className="mt-4 text-sm text-center">{locale === 'en' ? m.Des_en : m.Des}</p>
-
-          <div className="mt-auto flex justify-center">
-            <button className="text-des font-semibold p-2">{t}</button>
-          </div>
+          <p className="my-4 text-sm  text-center">{locale === 'en' ? m.Des_en : m.Des}</p>
         </div>
       ))}
     </div>

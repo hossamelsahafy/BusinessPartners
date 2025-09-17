@@ -14,7 +14,6 @@ const NavBar = () => {
 
   const navLinks = [
     { id: 1, href: '/contact', label: t('contact') },
-    { id: 2, href: '/why-us', label: t('whyus') },
     { id: 3, href: '/sectors', label: t('sectors') },
     { id: 4, href: '/services', label: t('services') },
     { id: 5, href: '/about', label: t('about') },

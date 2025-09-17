@@ -1,9 +1,8 @@
 'use client'
 import React from 'react'
-import { useParams, useRouter } from 'next/navigation'
-
+import { useParams } from 'next/navigation'
+import Link from 'next/link'
 const Content = ({ t }) => {
-  const router = useRouter()
   const { locale } = useParams()
   return (
     <div>
@@ -19,12 +18,12 @@ const Content = ({ t }) => {
         <span className="text-secondary">"</span>
       </h2>
 
-      <button
-        onClick={() => router.push(`${locale}/contact`)}
-        className="mt-10 bg-secondary hover:bg-yellow-600 transition duration-300 cursor-pointer text-white font-semibold py-2 px-6 rounded-lg"
+      <Link
+        href={`/${locale}/contact`}
+        className="mt-10 bg-secondary hover:bg-yellow-600 transition duration-300 cursor-pointer text-white font-semibold py-2 px-6 rounded-lg inline-block text-center"
       >
         {t('Button')}
-      </button>
+      </Link>
     </div>
   )
 }

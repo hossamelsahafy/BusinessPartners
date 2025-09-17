@@ -31,14 +31,18 @@
     "Button": "Learn More",
     "Services": [
       {
-        "Name": "Service One",
-        "des": "Financial Management and Accounting",
+        "Name": "Accounting and Financial Management",
+        "des": "We create a fully integrated accounting system for your company that covers all financial transactions, helping you track expenses, monitor sales, and know exactly how much profit you’re making.",
         "Image": "/ImageThree.png"
       },
-      { "Name": "Service Two", "des": "Tax and Audit Services", "Image": "/ImageTwo.png" },
       {
-        "Name": "Service Three",
-        "des": "Digital Transformation and Consulting",
+        "Name": "Taxes and Tax Auditing",
+        "des": "We ensure you feel confident in handling taxes, whether income tax, VAT, or withholding and collection, and we also prepare your company for tax audits.",
+        "Image": "/ImageTwo.png"
+      },
+      {
+        "Name": "Financial Analysis and Performance Measurement",
+        "des": "We help you see the full picture: Are you making a profit or a loss? If you’re profitable, why? If you’re losing, where is the loss coming from?",
         "Image": "/ImageOne.png"
       }
     ]
@@ -163,7 +167,7 @@
     "Des": "We are proud of our partnership with ByteForce to foster innovation and sustainable growth.",
     "SubTitle": "Technology Innovation Partner",
     "SubDes": "We collaborate with ByteForce to develop advanced solutions and push the boundaries of innovation in the field.",
-    "Btn": "Learn more about our partnership"
+    "Btn": "Learn more about ByteForce"
   },
 
   "Choose": {
@@ -254,16 +258,8 @@
     "Des": "You can visit us at one of our offices or contact us directly by phone or email. We are always close to you to support your business.",
     "Locations": [
       {
-        "Location": "North Teseen Street, Fifth Settlement, New Cairo, Egypt",
-        "Link": "https://maps.app.goo.gl/JM8m55NEu9P6eVaS9"
-      },
-      {
-        "Location": "Fouad Street, Downtown Area, Alexandria, Egypt",
-        "Link": "https://maps.app.goo.gl/pRi4kJNqysvUBQ4n7"
-      },
-      {
-        "Location": "Kingdom Tower, King Fahd Road, Riyadh, Saudi Arabia",
-        "Link": "https://maps.app.goo.gl/8rz1FTpitBjTpAtv9"
+        "Location": "El-Galaa Street (Downtown) - Next to Abu Aziza Gas Station - 9th Floor",
+        "Link": "https://maps.app.goo.gl/veGoQEP3nv81SMCH6"
       }
     ]
   }
