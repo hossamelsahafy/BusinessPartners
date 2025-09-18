@@ -56,6 +56,7 @@ const ChallengesSwiper = ({ Challenges, labels }) => {
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
+                viewport={{ once: true }}
                 className="w-full md:w-1/2 lg:w-3/4 flex rounded-lg"
               >
                 <Image
@@ -71,12 +72,14 @@ const ChallengesSwiper = ({ Challenges, labels }) => {
                 initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
                 className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-4"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
+                  viewport={{ once: true }}
                   className="flex items-center gap-2 bg-white p-2 rounded shadow w-fit"
                 >
                   <Image src={'/Subtract.png'} width={20} height={20} alt="icon" />
@@ -86,6 +89,7 @@ const ChallengesSwiper = ({ Challenges, labels }) => {
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                   className="text-sm md:text-base leading-relaxed"
                 >
@@ -101,6 +105,7 @@ const ChallengesSwiper = ({ Challenges, labels }) => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.6 }}
+                  viewport={{ once: true }}
                   className="flex items-center gap-2 bg-white p-2 rounded shadow w-fit"
                 >
                   <Image src={'/Subtract.png'} width={20} height={20} alt="icon" />
@@ -111,6 +116,7 @@ const ChallengesSwiper = ({ Challenges, labels }) => {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.7 }}
+                  viewport={{ once: true }}
                   className="text-sm md:text-base leading-relaxed"
                 >
                   {locale === 'ar' && c.Chances && (
