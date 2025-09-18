@@ -1,22 +1,40 @@
+'use client'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
 
 const Cards = ({ t }) => {
   const Sectors = t.raw('Sectors')
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 mt-4">
+    <motion.div
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 mt-4"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{
+        hidden: {},
+        visible: {
+          transition: { staggerChildren: 0.3 },
+        },
+      }}
+    >
       {Sectors.map((s) => (
-        <div
+        <motion.div
           key={s.Name}
           className="flex items-center flex-col rounded-lg shadow-[4px_6px_12px_rgba(28,47,140,0.25)] p-4 justify-center gap-4"
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.6 }}
         >
           <Image src={s.Image} width={150} height={150} alt={s.Name} className="object-center" />
           <p className="text-xl font-semibold lg:text-2xl text-des">{s.Name}</p>
           <p className="text-sm mt-auto">{s.des}</p>
           {/* <button className="text-sm text-des font-semibold mt-auto">{t('Button')}</button> */}
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   )
 }
 

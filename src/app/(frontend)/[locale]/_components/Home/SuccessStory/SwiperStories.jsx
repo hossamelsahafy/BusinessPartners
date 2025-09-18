@@ -8,7 +8,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { IoIosArrowBack } from 'react-icons/io'
 import { IoIosArrowForward } from 'react-icons/io'
-
+import { motion } from 'framer-motion'
 const SwiperStories = ({ stories }) => {
   const { locale } = useParams()
   const [expanded, setExpanded] = useState({})
@@ -42,28 +42,65 @@ const SwiperStories = ({ stories }) => {
                 className={`grid grid-cols-1 md:grid-cols-2 gap-6 mt-8  rounded-xl shadow-md shadow-[#1c2f8c]/30`}
                 dir={locale === 'ar' ? 'rtl' : 'ltr'}
               >
-                <div className="relative w-full h-64 md:h-[350px]">
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 1 }}
+                  className="relative w-full h-64 md:h-[350px]"
+                >
                   <Image
                     src={story.Image.url}
                     alt={getName(story)}
                     fill
                     className="object-cover rounded-lg"
                   />
-                </div>
+                </motion.div>
 
-                <div className="flex flex-col pr-2 md:max-h-[350px] md:overflow-y-auto">
-                  <h3 className="text-xl lg:text-2xl font-semibold text-[#1c2f8c] mb-3">
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ staggerChildren: 0.2, delayChildren: 1 }}
+                  variants={{
+                    hidden: {},
+                    visible: {},
+                  }}
+                  className="flex flex-col pr-2 md:max-h-[350px] md:overflow-y-auto"
+                >
+                  <motion.h3
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0 },
+                    }}
+                    transition={{ duration: 0.6 }}
+                    className="text-xl lg:text-2xl font-semibold text-[#1c2f8c] mb-3"
+                  >
                     {getName(story)}
-                  </h3>
-                  <p className="text-gray-700 text-sm lg:text-base leading-relaxed text-justify">
+                  </motion.h3>
+
+                  <motion.p
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0 },
+                    }}
+                    transition={{ duration: 0.6 }}
+                    className="text-gray-700 text-sm lg:text-base leading-relaxed text-justify"
+                  >
                     {isExpanded
                       ? description
                       : description.length > limit
                         ? description.slice(0, limit) + '...'
                         : description}
-                  </p>
+                  </motion.p>
+
                   {description.length > limit && (
-                    <button
+                    <motion.button
+                      variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0 },
+                      }}
+                      transition={{ duration: 0.6 }}
                       onClick={() => toggleExpand(story.id)}
                       className="mt-3 text-des font-medium hover:underline self-start"
                     >
@@ -74,9 +111,9 @@ const SwiperStories = ({ stories }) => {
                         : locale === 'ar'
                           ? 'إقرأ المزيد'
                           : 'Read More'}
-                    </button>
+                    </motion.button>
                   )}
-                </div>
+                </motion.div>
               </div>
             </SwiperSlide>
           )

@@ -5,6 +5,7 @@ import ClientsSwiper from './ClientsSwiper'
 import { useState, useEffect } from 'react'
 import getClientSaying from '@/app/(frontend)/[locale]/_actions/getClientSaying'
 import Spinner from '../../Spinner/Spinner'
+import { motion } from 'framer-motion'
 const SayAboutUs = () => {
   const t = useTranslations('SayAboutUs')
   const [clients, setClients] = useState([])
@@ -21,11 +22,29 @@ const SayAboutUs = () => {
   }, [])
 
   return (
-    <div className="max-w-6xl mx-auto mt-10">
-      <h1 className="text-2xl lg:text-4xl font-semibold text-center">{t('Title')} </h1>
-      <p className="text-center  mt-4">{t('Des')}</p>
-      {loading ? <Spinner /> : <ClientsSwiper clients={clients} />}
-    </div>
+    <>
+      <div className="max-w-6xl mx-auto mt-10">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-2xl lg:text-4xl font-semibold text-center"
+        >
+          {t('Title')}{' '}
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center  mt-4"
+        >
+          {t('Des')}
+        </motion.p>
+        {loading ? <Spinner /> : <ClientsSwiper clients={clients} />}
+      </div>
+    </>
   )
 }
 

@@ -8,7 +8,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import { FaStar, FaRegStar } from 'react-icons/fa'
-
+import { motion } from 'framer-motion'
 const SwiperStories = ({ clients }) => {
   const { locale } = useParams()
   const prevRef = useRef(null)
@@ -75,8 +75,12 @@ const SwiperStories = ({ clients }) => {
             const stars = client.stars
             return (
               <SwiperSlide key={index}>
-                <div
+                <motion.div
                   ref={(el) => (cardRefs.current[index] = el)}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  viewport={{ once: true }}
                   className="bg-white rounded-xl flex flex-col h-full p-6 shadow-[4px_6px_12px_rgba(28,47,140,0.25)] px-4"
                   dir={locale === 'ar' ? 'rtl' : 'ltr'}
                   style={{ minHeight: maxHeight > 0 ? `${maxHeight}px` : 'auto' }}
@@ -111,7 +115,7 @@ const SwiperStories = ({ clients }) => {
                       {description}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               </SwiperSlide>
             )
           })}
