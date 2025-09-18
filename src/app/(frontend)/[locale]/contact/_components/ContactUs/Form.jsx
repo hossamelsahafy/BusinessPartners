@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl'
 import { useParams } from 'next/navigation'
 import sendEmail from '../../../_actions/sendEmail'
 import ContactImage from './ContactImage'
-
+import { motion } from 'framer-motion'
 const Form = () => {
   const t = useTranslations('FormItems')
   const { locale } = useParams()
@@ -59,9 +59,16 @@ const Form = () => {
 
   return (
     <div className="flex flex-col md:flex-row gap-6 mt-8 justify-center items-stretch">
-      <ContactImage />
+      <ContactImage motion={motion} />
 
-      <form onSubmit={handleSubmit} className="w-full md:w-1/2 flex flex-col gap-4">
+      <motion.form
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        viewport={{ once: true }}
+        onSubmit={handleSubmit}
+        className="w-full md:w-1/2 flex flex-col gap-4"
+      >
         <div className="flex flex-col gap-2">
           <label className="text-des font-semibold">{t('FullName')}</label>
           <input
@@ -146,7 +153,7 @@ const Form = () => {
           )}
           {loading ? t('BtnLoading') : t('Btn')}
         </button>
-      </form>
+      </motion.form>
     </div>
   )
 }

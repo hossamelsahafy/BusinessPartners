@@ -8,15 +8,11 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { RichText } from '@payloadcms/richtext-lexical/react'
-
+import { motion } from 'framer-motion'
 const ChallengesSwiper = ({ Challenges, labels }) => {
-  console.log(Challenges)
-
   const { locale } = useParams()
   const prevRef = useRef(null)
   const nextRef = useRef(null)
-  const parseText = (text) => ({ children: [{ text }] })
-
   return (
     <div className="relative flex justify-center items-center w-full mt-4">
       <div
@@ -47,10 +43,21 @@ const ChallengesSwiper = ({ Challenges, labels }) => {
           nextEl: nextRef.current,
         }}
       >
-        {Challenges.map((c) => (
+        {Challenges.map((c, idx) => (
           <SwiperSlide key={c.id}>
-            <div className="mt-4 flex flex-col md:flex-row items-stretch gap-6">
-              <div className="w-full md:w-1/2 lg:w-3/4 flex rounded-lg">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="mt-4 flex flex-col md:flex-row items-stretch gap-6"
+            >
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="w-full md:w-1/2 lg:w-3/4 flex rounded-lg"
+              >
                 <Image
                   src={c.Image.url}
                   width={800}
@@ -58,36 +65,63 @@ const ChallengesSwiper = ({ Challenges, labels }) => {
                   alt={c.Challenges}
                   className="object-cover w-full h-full rounded-lg"
                 />
-              </div>
+              </motion.div>
 
-              <div className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-4">
-                <div className="flex items-center gap-2 bg-white p-2 rounded shadow w-fit">
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-4"
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="flex items-center gap-2 bg-white p-2 rounded shadow w-fit"
+                >
                   <Image src={'/Subtract.png'} width={20} height={20} alt="icon" />
                   <p className="text-sm md:text-base font-medium">{labels.challenges}</p>
-                </div>
-                <div className="text-sm md:text-base leading-relaxed">
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  className="text-sm md:text-base leading-relaxed"
+                >
                   {locale === 'ar' && c.Challenges && (
                     <RichText data={c.Challenges} className="rich-text" />
                   )}
                   {locale === 'en' && c.ChallengesEn && (
                     <RichText data={c.ChallengesEn} className="rich-text" />
                   )}
-                </div>
+                </motion.div>
 
-                <div className="flex items-center gap-2 bg-white p-2 rounded shadow w-fit">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                  className="flex items-center gap-2 bg-white p-2 rounded shadow w-fit"
+                >
                   <Image src={'/Subtract.png'} width={20} height={20} alt="icon" />
                   <p className="text-sm md:text-base font-medium">{labels.chances}</p>
-                </div>
-                <div className="text-sm md:text-base leading-relaxed">
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.7 }}
+                  className="text-sm md:text-base leading-relaxed"
+                >
                   {locale === 'ar' && c.Chances && (
                     <RichText data={c.Chances} className="rich-text" />
                   )}
                   {locale === 'en' && c.ChancesEn && (
                     <RichText data={c.ChancesEn} className="rich-text" />
                   )}
-                </div>
-              </div>
-            </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </SwiperSlide>
         ))}
       </Swiper>

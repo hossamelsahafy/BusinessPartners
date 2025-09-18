@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { useParams } from 'next/navigation'
-
+import { motion } from 'framer-motion'
 const PopUp = ({ sector, button }) => {
   const [open, setOpen] = useState(false)
   const { locale } = useParams()
@@ -16,7 +16,12 @@ const PopUp = ({ sector, button }) => {
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="fixed inset-0 z-50 flex items-center justify-center"
+        >
           <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)}></div>
 
           <div className="relative bg-white rounded-2xl shadow-xl max-w-md w-full p-6 z-10">
@@ -30,7 +35,7 @@ const PopUp = ({ sector, button }) => {
               {locale === 'en' ? 'Close' : 'اغلاق'}
             </button>
           </div>
-        </div>
+        </motion.div>
       )}
     </>
   )
