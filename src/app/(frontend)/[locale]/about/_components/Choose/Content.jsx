@@ -1,6 +1,8 @@
+'use client'
 import React from 'react'
 import { useTranslations } from 'next-intl'
 import Swiper from './Swiper'
+import { motion } from 'framer-motion'
 const Content = () => {
   const t = useTranslations('Choose')
 
@@ -61,12 +63,26 @@ const Content = () => {
   return (
     <div>
       <div className="max-w-6xl mx-auto mt-10 p-4" id="why-us">
-        <h1 className="text-2xl lg:text-4xl text-center font-bold">{t('Title')}</h1>
-        <p className="text-base text-center mt-4">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-2xl lg:text-4xl text-center font-bold"
+        >
+          {t('Title')}
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-base text-center mt-4"
+        >
           <span className="text-secondary">"</span>
           {t('Des')}
           <span className="text-secondary">"</span>
-        </p>
+        </motion.p>
         <Swiper Why={Why} />
       </div>
     </div>

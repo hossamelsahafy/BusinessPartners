@@ -1,14 +1,18 @@
 'use client'
 import React from 'react'
 import { useParams } from 'next/navigation'
-
+import { motion } from 'framer-motion'
 const Cards = ({ XPS }) => {
   const { locale } = useParams()
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
-      {XPS.map((m) => (
-        <div
+      {XPS.map((m, idx) => (
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: idx * 0.2 }}
           key={m.title}
           className="flex flex-col bg-white shadow-[1px_2px_4px_rgba(28,47,140,0.3)] rounded-lg overflow-hidden"
         >
@@ -23,7 +27,7 @@ const Cards = ({ XPS }) => {
           </p>
 
           <p className="my-4 text-sm text-center">{locale === 'en' ? m.Des_en : m.Des}</p>
-        </div>
+        </motion.div>
       ))}
     </div>
   )

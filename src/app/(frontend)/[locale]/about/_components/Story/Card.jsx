@@ -7,23 +7,31 @@ const Card = ({ story }) => {
   const [expanded, setExpanded] = useState(false)
   const descRef = useRef(null)
   const [showButton, setShowButton] = useState(false)
+  const [height, setHeight] = useState('80px') // animate between heights
   const maxHeight = 80
   const { locale } = useParams()
 
   useEffect(() => {
-    if (descRef.current.scrollHeight > maxHeight) {
+    if (descRef.current && descRef.current.scrollHeight > maxHeight) {
       setShowButton(true)
     }
   }, [])
 
-  const toggleExpanded = () => setExpanded(!expanded)
+  useEffect(() => {
+    if (expanded) {
+      setHeight(`${descRef.current.scrollHeight}px`)
+    } else {
+      setHeight(`${maxHeight}px`)
+    }
+  }, [expanded])
+
+  const toggleExpanded = () => {
+    setExpanded(!expanded)
+  }
 
   return (
     <div className="flex flex-col items-start gap-2 w-full">
-      <div
-        className="flex items-start gap-2 bg-white shadow-[1px_2px_4px_rgba(28,47,140,0.3)]
- rounded-md p-4"
-      >
+      <div className="flex items-start gap-2 bg-white shadow-[1px_2px_4px_rgba(28,47,140,0.3)] rounded-md p-4">
         <Image src="/Subtract.png" alt="Icon" width={24} height={24} />
         <h3 className="font-semibold text-center">
           {locale === 'ar' ? story.title : story.title_en}
@@ -32,10 +40,8 @@ const Card = ({ story }) => {
 
       <div
         ref={descRef}
-        className={`text-sm text-start mt-2 overflow-hidden transition-all duration-300`}
-        style={{
-          maxHeight: expanded ? `${descRef.current?.scrollHeight}px` : `${maxHeight}px`,
-        }}
+        className="text-sm text-start mt-2 overflow-hidden transition-[max-height] duration-500 ease-in-out"
+        style={{ maxHeight: height }}
       >
         {locale === 'ar' ? story.des : story.des_en}
       </div>

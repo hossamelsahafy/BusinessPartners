@@ -8,6 +8,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import CountUp from 'react-countup'
+import { motion } from 'framer-motion'
 
 const SwiperStories = ({ Why }) => {
   const { locale } = useParams()
@@ -40,7 +41,6 @@ const SwiperStories = ({ Why }) => {
     }
   }, [])
 
-  // Equal height cards
   useEffect(() => {
     if (cardRefs.current.length > 0) {
       const heights = cardRefs.current.map((ref) => (ref ? ref.offsetHeight : 0))
@@ -50,7 +50,6 @@ const SwiperStories = ({ Why }) => {
 
   return (
     <div ref={containerRef} className="relative max-w-6xl mx-auto p-4 sm:p-6 mt-10">
-      {/* Navigation buttons */}
       <div
         ref={locale === 'ar' ? nextRef : prevRef}
         className="hidden sm:flex absolute top-1/2 -left-6 sm:-left-6 -translate-y-1/2 z-10  p-3 sm:p-4  cursor-pointer"
@@ -88,7 +87,11 @@ const SwiperStories = ({ Why }) => {
 
           return (
             <SwiperSlide key={index} className="px-1 sm:px-2">
-              <div
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
                 ref={(el) => (cardRefs.current[index] = el)}
                 className="bg-white rounded-xl flex flex-col h-full p-4 sm:p-6 shadow-[4px_6px_12px_rgba(28,47,140,0.25)]"
                 dir={locale === 'ar' ? 'rtl' : 'ltr'}
@@ -117,7 +120,7 @@ const SwiperStories = ({ Why }) => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </SwiperSlide>
           )
         })}

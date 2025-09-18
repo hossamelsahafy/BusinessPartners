@@ -1,6 +1,10 @@
+'use client'
 import React from 'react'
 import CardList from './CardList'
-const Content = ({ t }) => {
+import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
+const Content = () => {
+  const t = useTranslations('AboutStory')
   const stories = [
     {
       title: 'البداية الحماسية',
@@ -34,12 +38,26 @@ const Content = ({ t }) => {
 
   return (
     <div className="max-w-6xl mx-auto p-4 mt-10" id="our-story">
-      <h1 className="text-2xl text-center lg:text-4xl font-semibold mt-4">{t('Title')}</h1>
-      <p className="text-base text-center mt-4">
+      <motion.h1
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-2xl text-center lg:text-4xl font-semibold mt-4"
+      >
+        {t('Title')}
+      </motion.h1>
+      <motion.p
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-base text-center mt-4"
+      >
         <span className="text-secondary">"</span>
         {t('Des')}
         <span className="text-secondary">"</span>
-      </p>
+      </motion.p>
       <CardList stories={stories} />
     </div>
   )
