@@ -33,7 +33,7 @@ const Content = ({ t }) => {
   ]
 
   return (
-    <div className="max-w-6xl mx-auto p-4 mt-10">
+    <div className="max-w-6xl mx-auto p-4 mt-10" id="our-story">
       <h1 className="text-2xl text-center lg:text-4xl font-semibold mt-4">{t('Title')}</h1>
       <p className="text-base text-center mt-4">
         <span className="text-secondary">"</span>

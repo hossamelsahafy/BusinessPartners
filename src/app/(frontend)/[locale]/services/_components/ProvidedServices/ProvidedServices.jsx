@@ -5,7 +5,7 @@ import Cards from './Cards'
 const ProvidedServices = () => {
   const t = useTranslations('ProvidedServices')
   return (
-    <div className="max-w-6xl mx-auto p-4 mt-15">
+    <div className="max-w-6xl mx-auto p-4 mt-15" id="service">
       <Content t={t} />
       <Cards t={t} />
     </div>

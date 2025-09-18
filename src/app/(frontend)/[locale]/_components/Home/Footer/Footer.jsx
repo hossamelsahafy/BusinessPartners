@@ -1,47 +1,45 @@
+'use client'
 import { useTranslations } from 'next-intl'
 import { FaWhatsapp, FaFacebook, FaInstagram, FaXTwitter } from 'react-icons/fa6'
 import BannerTwo from './BannerTwo'
-
+import { useParams } from 'next/navigation'
 const Footer = () => {
   const t = useTranslations('Footer')
-
+  const { locale } = useParams()
   const footerSections = [
     {
       title: t('support.title'),
       links: [
-        t('support.contactUs'),
-        t('support.offices'),
-        t('support.socialMedia'),
-        t('support.joinTeam'),
+        { label: t('support.contactUs'), href: `/${locale}/contact#contact` },
+        { label: t('support.offices'), href: `/${locale}/contact/#location` },
       ],
     },
     {
       title: t('sectors.title'),
       links: [
-        t('sectors.healthcare'),
-        t('sectors.ecommerce'),
-        t('sectors.contracting'),
-        t('sectors.realEstate'),
-        t('sectors.startups'),
+        { label: t('sectors.healthcare'), href: `/${locale}/sectors#sector` },
+        { label: t('sectors.ecommerce'), href: `/${locale}/sectors#sector` },
+        { label: t('sectors.contracting'), href: `/${locale}/sectors#sector` },
+        { label: t('sectors.realEstate'), href: `/${locale}/sectors#sector` },
+        { label: t('sectors.startups'), href: `/${locale}/sectors#sector` },
       ],
     },
     {
       title: t('services.title'),
       links: [
-        t('services.financialManagement'),
-        t('services.taxesAudit'),
-        t('services.managementConsulting'),
-        t('services.digitalTransformation'),
-        t('services.riskManagement'),
+        { label: t('services.financialManagement'), href: `/${locale}/services#service` },
+        { label: t('services.taxesAudit'), href: `/${locale}/services#service` },
+        { label: t('services.financialReporting'), href: `/${locale}/services#service` },
+        { label: t('services.adminAccountingSystems'), href: `/${locale}/services#service` },
       ],
     },
     {
       title: t('about.title'),
       links: [
-        t('about.whoWeAre'),
-        t('about.ourStory'),
-        t('about.visionMission'),
-        t('about.whyChooseUs'),
+        { label: t('about.whoWeAre'), href: `/${locale}/about/#who` },
+        { label: t('about.ourStory'), href: `/${locale}/about/#our-story` },
+        { label: t('about.visionMission'), href: `/${locale}/about/#vision` },
+        { label: t('about.whyChooseUs'), href: `/${locale}/about/#why-us` },
       ],
     },
   ]
@@ -58,8 +56,8 @@ const Footer = () => {
                 <ul className="space-y-2">
                   {section.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
-                      <a href="#" className="text-sm hover:underline transition-all">
-                        {link}
+                      <a href={link.href} className="text-sm hover:underline transition-all">
+                        {link.label}
                       </a>
                     </li>
                   ))}

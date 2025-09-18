@@ -107,11 +107,10 @@
     },
     "services": {
       "title": "الخدمات",
-      "financialManagement": "الإدارة المالية",
-      "taxesAudit": "الضرائب والتدقيق",
-      "managementConsulting": "الاستشارات الإدارية",
-      "digitalTransformation": "التحول الرقمي",
-      "riskManagement": "إدارة المخاطر"
+      "financialManagement": "المحاسبة والإدارة المالية",
+      "taxesAudit": "الضرائب والتدقيق الضريبي",
+      "financialReporting": "التقارير المالية",
+      "adminAccountingSystems": "بناء الأنظمة الإدارية والمحاسبية"
     },
     "about": {
       "title": "عن الشركة",

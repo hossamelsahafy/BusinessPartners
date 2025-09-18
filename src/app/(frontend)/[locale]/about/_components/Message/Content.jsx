@@ -40,7 +40,7 @@ const Content = () => {
   ]
 
   return (
-    <div className="max-w-6xl mx-auto mt-10 p-4">
+    <div className="max-w-6xl mx-auto mt-10 p-4" id="vision">
       <h1 className="text-2xl lg:text-4xl text-center font-bold">{t('Title')}</h1>
       <p className="text-base text-center mt-4">
         <span className="text-secondary">"</span>

@@ -1,5 +1,7 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
+import { FaBriefcase, FaGlobe, FaUsers, FaProjectDiagram } from 'react-icons/fa'
+
 import Cards from './Cards'
 const Content = () => {
   const t = useTranslations('AboutXP')
@@ -10,28 +12,28 @@ const Content = () => {
       title_en: '10+ Years',
       Des: 'خبرة',
       Des_en: 'Experience',
-      Image: '/XPOne.png',
+      Icon: <FaBriefcase className="text-4xl text-des" />,
     },
     {
       title: 'مصر + الخليج',
       title_en: 'Egypt + Gulf',
       Des: 'مناطق الخدمة',
       Des_en: 'Service Areas',
-      Image: '/XPTwo.png',
+      Icon: <FaGlobe className="text-4xl text-des" />,
     },
     {
       title: '100+ عميل',
       title_en: '100+ Clients',
       Des: 'شركاء موثوقون',
       Des_en: 'Trusted Partners',
-      Image: '/XPThree.png',
+      Icon: <FaUsers className="text-4xl text-des" />,
     },
     {
       title: '50+ مشروع',
       title_en: '50+ Projects',
       Des: 'انجازات ناجحة',
       Des_en: 'Successful Achievements',
-      Image: '/XPFour.png',
+      Icon: <FaProjectDiagram className="text-4xl text-des" />,
     },
   ]
 

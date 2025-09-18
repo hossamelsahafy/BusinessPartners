@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import { useParams } from 'next/navigation'
-import Image from 'next/image'
 
 const Cards = ({ XPS }) => {
   const { locale } = useParams()
@@ -15,13 +14,7 @@ const Cards = ({ XPS }) => {
         >
           <div className="flex justify-center mt-6">
             <div className="w-24 h-24  rounded-full flex items-center justify-center">
-              <Image
-                src={m.Image}
-                alt="Message"
-                width={100}
-                height={100}
-                className="object-contain"
-              />
+              <div className="w-[50px]">{m.Icon}</div>
             </div>
           </div>
 

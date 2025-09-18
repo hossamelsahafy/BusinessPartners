@@ -106,11 +106,10 @@
     },
     "services": {
       "title": "Services",
-      "financialManagement": "Financial Management",
-      "taxesAudit": "Taxes & Audit",
-      "managementConsulting": "Management Consulting",
-      "digitalTransformation": "Digital Transformation",
-      "riskManagement": "Risk Management"
+      "financialManagement": "Accounting and Financial Management",
+      "taxesAudit": "Taxes and Tax Audits",
+      "financialReporting": "Financial Reporting",
+      "adminAccountingSystems": "Building Administrative and Accounting Systems"
     },
     "about": {
       "title": "About Company",
@@ -149,7 +148,7 @@
     "Title": "Leadership Team",
     "Des": "Meet our outstanding leadership.",
     "Name": "Mohamed El-Alfy",
-    "Position": "Chief Executive Officer",
+    "Position": "CEO At Business Partners",
     "Para": "An experienced leader in business management.",
     "Icon": "LinkedIn"
   },

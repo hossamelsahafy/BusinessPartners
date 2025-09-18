@@ -21,7 +21,7 @@ const Card = ({ t }) => {
         <p className="text-sm lg:text-xl text-center text-des">{t('SubDes')}</p>
         <Link
           href="https://byteforceinc.com"
-          className="py-3 px-12 text-white bg-des font-semibold rounded-lg inline-block mx-auto mt-10"
+          className="py-3 px-12 text-white bg-des font-semibold rounded-lg inline-block mx-auto mt-10 hover:bg-blue-700 transition duration-300"
         >
           {t('Btn')}
         </Link>
