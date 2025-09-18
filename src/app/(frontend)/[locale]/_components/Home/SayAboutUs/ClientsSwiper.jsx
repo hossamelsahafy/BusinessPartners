@@ -9,7 +9,7 @@ import 'swiper/css/navigation'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import { FaStar, FaRegStar } from 'react-icons/fa'
 import { motion } from 'framer-motion'
-const SwiperStories = ({ clients }) => {
+const ClientSaying = ({ clients }) => {
   const { locale } = useParams()
   const prevRef = useRef(null)
   const nextRef = useRef(null)
@@ -125,4 +125,4 @@ const SwiperStories = ({ clients }) => {
   )
 }
 
-export default SwiperStories
+export default ClientSaying

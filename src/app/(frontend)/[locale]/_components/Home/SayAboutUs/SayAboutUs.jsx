@@ -1,12 +1,10 @@
-'use client'
 import React from 'react'
 import { useTranslations } from 'next-intl'
 import ClientsSwiper from './ClientsSwiper'
 import { useState, useEffect } from 'react'
 import getClientSaying from '@/app/(frontend)/[locale]/_actions/getClientSaying'
 import Spinner from '../../Spinner/Spinner'
-import { motion } from 'framer-motion'
-const SayAboutUs = () => {
+const SayAboutUs = ({ motion }) => {
   const t = useTranslations('SayAboutUs')
   const [clients, setClients] = useState([])
   const [loading, setLoading] = useState(true)
