@@ -79,12 +79,12 @@ const Footer = () => {
             <a href="https://www.instagram.com/businesspartnersegy/" aria-label="Instagram">
               <FaInstagram className="hover:text-pink-400 transition" />
             </a>
-            <a href="#" aria-label="X (Twitter)">
+            {/* <a href="#" aria-label="X (Twitter)">
               <FaXTwitter className="hover:text-gray-400 transition" />
-            </a>
+            </a> */}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-2 text-sm">
+          {/* <div className="flex flex-wrap justify-center gap-2 text-sm">
             <a href="#" className="hover:underline">
               {t('privacyPolicy')}
             </a>
@@ -92,7 +92,7 @@ const Footer = () => {
             <a href="#" className="hover:underline">
               {t('termsConditions')}
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
 
