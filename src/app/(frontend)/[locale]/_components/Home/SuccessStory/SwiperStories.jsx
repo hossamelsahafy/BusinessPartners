@@ -10,6 +10,8 @@ import { IoIosArrowBack } from 'react-icons/io'
 import { IoIosArrowForward } from 'react-icons/io'
 import { motion } from 'framer-motion'
 const SwiperStories = ({ stories }) => {
+  console.log(stories)
+
   const { locale } = useParams()
   const [expanded, setExpanded] = useState({})
   const toggleExpand = (id) => {

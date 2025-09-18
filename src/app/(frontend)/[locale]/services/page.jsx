@@ -1,13 +1,14 @@
+'use client'
 import React from 'react'
 import Header from './_components/Header/Header'
 import ProvidedServices from './_components/ProvidedServices/ProvidedServices'
-import Success from '../_components/Home/SuccessStory/Success'
+import Stories from '../_components/Home/SuccessStory/Stories'
 const page = () => {
   return (
     <div>
       <Header />
       <ProvidedServices />
-      <Success />
+      <Stories />
     </div>
   )
 }
