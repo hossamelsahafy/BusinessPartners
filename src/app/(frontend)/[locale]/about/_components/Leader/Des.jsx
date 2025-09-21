@@ -25,7 +25,7 @@ const Des = ({ t, locale, motion }) => {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className={`flex flex-col gap-4 text-des text-xl text-center lg:text-left max-w-xl ${locale === 'en' ? 'mr-auto' : 'ml-auto'}`}
+        className={`flex flex-col gap-4 text-des text-xl text-start lg:text-left max-w-xl ${locale === 'en' ? 'mr-auto' : 'ml-auto'}`}
       >
         <p className="font-bold text-2xl sm:text-3xl text-start lg:text-4xl">{t('Name')}</p>
         <p className="text-start font-semibold">{t('Position')}</p>
@@ -35,7 +35,7 @@ const Des = ({ t, locale, motion }) => {
           href="https://www.linkedin.com/in/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 justify-center lg:justify-start text-blue-600 hover:underline"
+          className="flex items-start gap-2 justify-start text-blue-600 hover:underline"
         >
           <FaLinkedinIn className="text-2xl" />
           <span>{t('Icon')}</span>

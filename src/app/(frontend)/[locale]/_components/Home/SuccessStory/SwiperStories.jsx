@@ -3,17 +3,17 @@ import React, { useState } from 'react'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
+import { Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { IoIosArrowBack } from 'react-icons/io'
-import { IoIosArrowForward } from 'react-icons/io'
+import 'swiper/css/pagination'
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import { motion } from 'framer-motion'
-const SwiperStories = ({ stories }) => {
-  console.log(stories)
 
+const SwiperStories = ({ stories }) => {
   const { locale } = useParams()
   const [expanded, setExpanded] = useState({})
+
   const toggleExpand = (id) => {
     setExpanded((prev) => ({ ...prev, [id]: !prev[id] }))
   }
@@ -30,8 +30,12 @@ const SwiperStories = ({ stories }) => {
           nextEl: '.custom-next',
           prevEl: '.custom-prev',
         }}
-        modules={[Navigation]}
-        className="cursor-grab active:cursor-grabbing"
+        pagination={{
+          clickable: true,
+          el: '.custom-pagination',
+        }}
+        modules={[Navigation, Pagination]}
+        className="cursor-grab active:cursor-grabbing !pb-12"
       >
         {stories.map((story) => {
           const description = getText(story)
@@ -41,7 +45,7 @@ const SwiperStories = ({ stories }) => {
           return (
             <SwiperSlide key={story.id}>
               <div
-                className={`grid grid-cols-1 md:grid-cols-2 gap-6 mt-8  rounded-xl shadow-md shadow-[#1c2f8c]/30`}
+                className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 rounded-xl"
                 dir={locale === 'ar' ? 'rtl' : 'ltr'}
               >
                 <motion.div
@@ -64,10 +68,7 @@ const SwiperStories = ({ stories }) => {
                   whileInView="visible"
                   viewport={{ once: true }}
                   transition={{ staggerChildren: 0.2, delayChildren: 1 }}
-                  variants={{
-                    hidden: {},
-                    visible: {},
-                  }}
+                  variants={{ hidden: {}, visible: {} }}
                   className="flex flex-col pr-2 md:max-h-[350px] md:overflow-y-auto"
                 >
                   <motion.h3
@@ -121,12 +122,15 @@ const SwiperStories = ({ stories }) => {
           )
         })}
       </Swiper>
-      <div className="custom-prev hidden sm:flex absolute top-1/2 -left-12 -translate-y-1/2 z-10 text-[#1c2f8c] cursor-pointer">
+
+      <div className="custom-prev hidden lg:flex absolute top-1/2 -left-12 -translate-y-1/2 z-10 cursor-pointer">
         <IoIosArrowBack className="text-[#1c2f8c] text-2xl font-semibold" />
       </div>
-      <div className="custom-next hidden sm:flex  absolute top-1/2 -right-12 -translate-y-1/2 z-10 text-[#1c2f8c] cursor-pointer">
+      <div className="custom-next hidden lg:flex absolute top-1/2 -right-12 -translate-y-1/2 z-10 cursor-pointer">
         <IoIosArrowForward className="text-[#1c2f8c] text-2xl font-semibold" />
       </div>
+
+      <div className="custom-pagination flex justify-center mt-4 lg:hidden" />
     </div>
   )
 }

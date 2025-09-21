@@ -23,7 +23,7 @@ const Content = () => {
         <span className="text-secondary">"</span>
       </p>
       <div className="mt-6 w-full">
-        <div className="w-full rounded-lg overflow-hidden shadow-md">
+        <div className="w-full rounded-lg overflow-hidden">
           <MapSection />
         </div>
       </div>

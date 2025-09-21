@@ -10,21 +10,22 @@ const Quick = () => {
 
   return (
     <div className="max-w-6xl mt-10 mx-auto">
-      {/* Title with fade + slide */}
       <motion.div
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="flex items-center justify-center text-2xl lg:text-4xl font-semibold gap-4"
+        className="flex flex-col sm:flex-row items-center justify-center 
+             text-lg sm:text-2xl lg:text-4xl font-semibold gap-2 sm:gap-4 text-center sm:text-left"
       >
         <p className="font-semibold">{t('title')}</p>
-        <span className="text-secondary">“</span>
-        <span>{t('Span')}</span>
-        <span className="text-secondary">”</span>
+        <div className="flex items-center gap-1">
+          <span className="text-secondary"> “</span>
+          <span>{t('Span')}</span>
+          <span className="text-secondary">”</span>
+        </div>
       </motion.div>
 
-      {/* Paragraph with slight delay */}
       <motion.p
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

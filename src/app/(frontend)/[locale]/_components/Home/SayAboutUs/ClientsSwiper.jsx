@@ -3,9 +3,10 @@ import React, { useRef, useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
+import { Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import { FaStar, FaRegStar } from 'react-icons/fa'
 import { motion } from 'framer-motion'
@@ -15,6 +16,7 @@ const ClientSaying = ({ clients }) => {
   const nextRef = useRef(null)
   const [maxHeight, setMaxHeight] = useState(0)
   const cardRefs = useRef([])
+  const paginationRef = useRef(null)
 
   const getText = (client) => (locale === 'ar' ? client.DesAr : client.DesEn)
   const getName = (client) => (locale === 'ar' ? client.NameAr : client.NameEn)
@@ -32,13 +34,13 @@ const ClientSaying = ({ clients }) => {
     <div className="relative max-w-6xl mx-auto my-10">
       <div
         ref={locale === 'en' ? prevRef : nextRef}
-        className="hidden sm:flex absolute top-1/2 -left-12 -translate-y-1/2 z-10  cursor-pointer"
+        className="hidden lg:flex absolute top-1/2 -left-12 -translate-y-1/2 z-10  cursor-pointer"
       >
         <IoIosArrowBack className="text-[#1c2f8c] text-2xl" />
       </div>
       <div
         ref={locale === 'en' ? nextRef : prevRef}
-        className="hidden sm:flex  absolute top-1/2 -right-12 -translate-y-1/2 z-10  cursor-pointer"
+        className="hidden lg:flex  absolute top-1/2 -right-12 -translate-y-1/2 z-10  cursor-pointer"
       >
         <IoIosArrowForward className="text-[#1c2f8c] text-2xl" />
       </div>
@@ -48,10 +50,14 @@ const ClientSaying = ({ clients }) => {
           slidesPerView={1}
           slidesOffsetBefore={15}
           slidesOffsetAfter={15}
-          modules={[Navigation]}
+          modules={[Navigation, Pagination]}
           onBeforeInit={(swiper) => {
             swiper.params.navigation.prevEl = prevRef.current
             swiper.params.navigation.nextEl = nextRef.current
+          }}
+          pagination={{
+            clickable: true,
+            el: paginationRef.current,
           }}
           navigation={{
             prevEl: prevRef.current,
@@ -121,6 +127,7 @@ const ClientSaying = ({ clients }) => {
           })}
         </Swiper>
       }
+      <div ref={paginationRef} className="custom-pagination flex justify-center mt-4 lg:hidden" />
     </div>
   )
 }

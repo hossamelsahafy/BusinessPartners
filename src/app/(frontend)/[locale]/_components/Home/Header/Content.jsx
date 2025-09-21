@@ -8,9 +8,9 @@ const Content = ({ t }) => {
     <div>
       <h1 className="text-2xl md:text-4xl font-bold max-w-4xl ">
         {t('TitleOne')}
-        <span className="text-secondary">“</span>
+        <span className="text-secondary"> “ </span>
         <span className="">{t('SpanOne')}</span>
-        <span className="text-secondary">”</span>
+        <span className="text-secondary"> ” </span>
       </h1>
       <h2 className="mt-4 max-w-3xl text-sm md:text-lg font-medium">
         <span className="text-secondary">"</span>

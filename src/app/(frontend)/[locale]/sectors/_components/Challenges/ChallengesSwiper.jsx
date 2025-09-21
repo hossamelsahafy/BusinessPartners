@@ -6,25 +6,29 @@ import { useParams } from 'next/navigation'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { Navigation } from 'swiper/modules'
+import 'swiper/css/pagination'
+import { Navigation, Pagination } from 'swiper/modules'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import { motion } from 'framer-motion'
+
 const ChallengesSwiper = ({ Challenges, labels }) => {
   const { locale } = useParams()
   const prevRef = useRef(null)
   const nextRef = useRef(null)
+
   return (
-    <div className="relative flex justify-center items-center w-full mt-4">
+    <div className="relative flex flex-col items-center w-full mt-4">
+      {/* Arrows → only visible on lg+ */}
       <div
         ref={locale === 'en' ? prevRef : nextRef}
-        className="hidden md:block absolute top-1/2 -left-6 lg:-left-12 -translate-y-1/2 z-10 cursor-pointer"
+        className="hidden lg:block absolute top-1/2 -left-6 lg:-left-12 -translate-y-1/2 z-10 cursor-pointer"
       >
         <IoIosArrowBack className="text-[#1c2f8c] text-2xl lg:text-3xl" />
       </div>
 
       <div
         ref={locale === 'en' ? nextRef : prevRef}
-        className="hidden md:block absolute top-1/2 -right-6 lg:-right-12 -translate-y-1/2 z-10 cursor-pointer"
+        className="hidden lg:block absolute top-1/2 -right-6 lg:-right-12 -translate-y-1/2 z-10 cursor-pointer"
       >
         <IoIosArrowForward className="text-[#1c2f8c] text-2xl lg:text-3xl" />
       </div>
@@ -32,8 +36,8 @@ const ChallengesSwiper = ({ Challenges, labels }) => {
       <Swiper
         spaceBetween={20}
         slidesPerView={1}
-        className="w-full max-w-6xl cursor-grab"
-        modules={[Navigation]}
+        className="w-full max-w-6xl cursor-grab !pb-12"
+        modules={[Navigation, Pagination]}
         onBeforeInit={(swiper) => {
           swiper.params.navigation.prevEl = prevRef.current
           swiper.params.navigation.nextEl = nextRef.current
@@ -41,6 +45,10 @@ const ChallengesSwiper = ({ Challenges, labels }) => {
         navigation={{
           prevEl: prevRef.current,
           nextEl: nextRef.current,
+        }}
+        pagination={{
+          clickable: true,
+          el: '.custom-pagination',
         }}
       >
         {Challenges.map((c, idx) => (
@@ -52,6 +60,7 @@ const ChallengesSwiper = ({ Challenges, labels }) => {
               viewport={{ once: true }}
               className="mt-4 flex flex-col md:flex-row items-stretch gap-6"
             >
+              {/* Image Section */}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -68,6 +77,7 @@ const ChallengesSwiper = ({ Challenges, labels }) => {
                 />
               </motion.div>
 
+              {/* Text Section */}
               <motion.div
                 initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -75,6 +85,7 @@ const ChallengesSwiper = ({ Challenges, labels }) => {
                 viewport={{ once: true }}
                 className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-4"
               >
+                {/* Challenges Label */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -86,6 +97,7 @@ const ChallengesSwiper = ({ Challenges, labels }) => {
                   <p className="text-sm md:text-base font-medium">{labels.challenges}</p>
                 </motion.div>
 
+                {/* Challenges Text */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -101,6 +113,7 @@ const ChallengesSwiper = ({ Challenges, labels }) => {
                   )}
                 </motion.div>
 
+                {/* Chances Label */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -112,6 +125,7 @@ const ChallengesSwiper = ({ Challenges, labels }) => {
                   <p className="text-sm md:text-base font-medium">{labels.chances}</p>
                 </motion.div>
 
+                {/* Chances Text */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -131,6 +145,9 @@ const ChallengesSwiper = ({ Challenges, labels }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* Pagination Dots → visible only on sm/md */}
+      <div className="custom-pagination flex justify-center mt-4 lg:hidden" />
     </div>
   )
 }
