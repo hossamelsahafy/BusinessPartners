@@ -20,7 +20,10 @@ const MobileNav = ({ locale, navLinks, menuOpen, setMenuOpen, switchPath, otherL
   return (
     <div className="md:hidden">
       <div className="flex justify-between items-center">
-        <button className="focus:outline-none text-2xl" onClick={() => setMenuOpen(true)}>
+        <button
+          className="focus:outline-none text-2xl p-4 cursor-pointer"
+          onClick={() => setMenuOpen(true)}
+        >
           <FaBars />
         </button>
 
@@ -46,7 +49,7 @@ const MobileNav = ({ locale, navLinks, menuOpen, setMenuOpen, switchPath, otherL
     `}
         >
           <button
-            className="absolute top-4 right-4 text-4xl font-bold"
+            className="absolute top-4 right-4 text-4xl cursor-pointer font-bold"
             onClick={() => setMenuOpen(false)}
           >
             &times;
