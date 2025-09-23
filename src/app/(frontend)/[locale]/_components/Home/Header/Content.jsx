@@ -6,7 +6,7 @@ const Content = ({ t }) => {
   const { locale } = useParams()
   return (
     <div>
-      <h1 className="text-2xl md:text-4xl font-bold max-w-4xl ">
+      <h1 className="text-xl md:text-4xl font-bold max-w-4xl ">
         {t('TitleOne')}
         <span className="text-secondary"> “ </span>
         <span className="">{t('SpanOne')}</span>

@@ -9,7 +9,7 @@ const Locations = ({ locations }) => {
   const { locale } = useParams()
 
   return (
-    <div className="flex flex-col mt-4 justify-around gap-5">
+    <div className="max-w-6xl flex flex-col p-4 justify-around gap-5">
       {locations.map((l) => (
         <div key={l.Link} className="flex items-center gap-5">
           <p className="flex items-center text-sm sm:text-base font-medium">

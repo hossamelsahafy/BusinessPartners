@@ -46,7 +46,9 @@ const Footer = () => {
 
   return (
     <footer className="w-full overflow-hidden">
-      <BannerTwo />
+      <div className="p-4">
+        <BannerTwo />
+      </div>
       <div className="bg-[#1c2f8c] text-white py-12 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center sm:text-left">
