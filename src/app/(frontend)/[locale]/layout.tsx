@@ -61,7 +61,7 @@ export async function generateMetadata({
   return {
     title: {
       default: siteTitle,
-      template: `${siteTitle} - %s`, // الشركة الأول
+      template: `${siteTitle} - %s`,
     },
     description: descriptionByLocale[locale],
     alternates: {
